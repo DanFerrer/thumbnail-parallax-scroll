@@ -4,7 +4,7 @@ import defaultImage from 'default.png';
 const docWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
 
 const defaultThumbnail = {
-	title: 'Watch this video!'.
+	title: 'Watch this video!',
 	url: defaultImage
 };
 
@@ -30,17 +30,16 @@ function formatObj(obj) {
 			return {
 				title: ele.title,
 				url: ele.thumbnails[thumbnailIndex].url
-			}
+			};
 		} else {
 			return defaultThumbnail;
 		}
-	})
+	});
 }
 
 class ThumbnailService {
 	constructor() {
 		this.apiKey = process.ENV.API_KEY;
-		this.thumbnails = [];
 	}
 
 	getThumbnails() {
@@ -48,7 +47,7 @@ class ThumbnailService {
 	}
 
 	setThumbnails() {
-		this.thumbnails = this.getThumbnails().then((resp) => {
+		return this.getThumbnails().then((resp) => {
 			let obj = resp.data.response;
 			formatObj(obj);
 		});

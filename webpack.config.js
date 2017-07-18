@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   devtool: 'source-map',
   output: {
@@ -26,10 +28,12 @@ module.exports = {
        		'babel-loader'
       	]
        },
+       {
        	test: /\.html$/,
-			use: [
-				'html'
-			]
+		use: [
+			'html'
+		]
+       }
      ]
    }
 };
