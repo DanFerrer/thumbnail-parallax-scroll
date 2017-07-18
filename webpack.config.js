@@ -1,7 +1,4 @@
-const path = require('path');
-
 module.exports = {
-  entry: './src/index.js',
   devtool: 'source-map',
   output: {
     filename: 'bundle.js',
@@ -28,7 +25,11 @@ module.exports = {
       	use: [
        		'babel-loader'
       	]
-       }
+       },
+       	test: /\.html$/,
+				use: [
+					'html'
+				]
      ]
    }
 };
