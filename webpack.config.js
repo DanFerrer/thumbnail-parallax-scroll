@@ -27,9 +27,9 @@ module.exports = {
       	]
        },
        	test: /\.html$/,
-				use: [
-					'html'
-				]
+			use: [
+				'html'
+			]
      ]
    }
 };
